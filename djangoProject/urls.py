@@ -23,11 +23,11 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('profile/',views.profile_view,name='profile_view'),
-    path("accounts/", include("django.contrib.auth.urls")),
-    path('logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout'),
+    # path('profile/',views.profile_view,name='profile_view'),
+    # path("accounts/", include("django.contrib.auth.urls")),
 
     path('', include('News.urls')),
+    path('', include('App.urls'))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

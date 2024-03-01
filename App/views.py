@@ -3,6 +3,7 @@ from .models import Profile, Message, Chat, Group, FriendRequest
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from App.forms import RegisterForm, ProfileForm
 
 @login_required
 def profile_view(request):
@@ -78,3 +79,27 @@ def friend_request_view(request):
         return HttpResponse('Friend Request Sent!')
     else:
         return HttpResponse('Bad Request')
+
+def signup(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        profile_form = ProfileForm(request.POST)
+        if form.is_valid() and profile_form.is_valid():
+            user = form.save()
+            profile = profile_form.save(commit=False)
+            profile.user = user
+            profile.save()
+            return redirect('/login/')
+    else:
+        form = RegisterForm()
+    return render(
+        request,
+        'registration/signup.html',
+        {
+            'form': form,
+        },
+    )
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')

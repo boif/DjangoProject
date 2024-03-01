@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<h3>U are already logged in</h3>
+<p><a href="{% url 'home' %}" class="btn btn-primary btn-large">Go back to the main page</a></p>
+
+{% else %}
+
+<h1>Create an account</h1>
+<form method='POST' class="form-group">
+    {% csrf_token %}
+    {{ form | crispy }}
+    <button type="submit" class="btn btn-primary">Sign up</button>
+</form>
+
+{% endif %}
+
+{% endblock %}

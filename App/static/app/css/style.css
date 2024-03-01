@@ -48,26 +48,35 @@ body {
     box-sizing: border-box;
     word-wrap: break-word; /* Добавляем перенос для длинных слов */
 }
-.logout-button {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 1000; /* Установите z-index по вашему усмотрению, чтобы кнопка находилась поверх других элементов */
-}
 
-.logout-button a {
-    color: #fff;
-    background-color: #333;
-    padding: 8px 16px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.logout-button a:hover {
-    background-color: #444;
-}
 .avatar {
     width: 250px; /* Желаемая ширина изображения */
     height: 250px; /* Автоматическое определение высоты */
     border-radius: 50%; /* Округление углов для создания эффекта круглой аватарки */
 }
+
+.bottom-buttons {
+    position: absolute;
+    bottom: 0px; /* Расположить блок по нижнему краю с отступом в 20 пикселей */
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar-button {
+    display: block;
+    margin-bottom: 10px; /* Добавить отступ между кнопками */
+    color: #fff;
+    background-color: #272727;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold; /* Сделать текст жирным */
+    border: none; /* Убрать края */
+    font-size: 16px; /* Увеличить размер шрифта */
+}
+
+.sidebar-button:hover {
+    background-color: #333;
+}
+
