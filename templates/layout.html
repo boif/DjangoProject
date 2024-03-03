@@ -7,54 +7,26 @@
     <title>Teneta</title>
     <link rel="icon" type="image/x-icon" href="{% static 'app/images/favicon.ico' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'app/css/style.css' %}">
-    <style>
-        /* Стили для кнопок login и logout */
-        .login-logout {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 1000; /* Установите z-index по вашему усмотрению, чтобы кнопка находилась поверх других элементов */
-        }
-
-        .login-logout a {
-            color: #fff;
-            background-color: #333;
-            padding: 8px 16px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-left: 10px;
-        }
-
-        .login-logout a:hover {
-            background-color: #444;
-        }
-    </style>
 </head>
 <body>
-    <div class="content">
-        {% block content %}{% endblock %}
-    </div>
     <div class="sidebar">
         <ul>
-            <li><a href="/">Teneta</a></li>
-            <li><a href="{% url 'news' %}">News</a></li>
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'user_profile' pk=user.profile.pk %}">Profile</a></li>
-            {% endif %}
+            <li><a href="/" class="sidebar-button">Teneta</a></li>
         </ul>
-    </div>
-    <div class="login-logout">
         {% if user.is_authenticated %}
-        <form method="post" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit">logout</button>
-        </form>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                    <button type="submit" class="bottom-buttons sidebar-button">Log out</button>
+            </form>
         {% else %}
-        <form method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-            <button type="submit">login</button>
-        </form>
+            <div class="bottom-buttons">
+                <a href="{% url 'login' %}" class="sidebar-button">Log in</a>
+                <a href="{% url 'signup' %}" class="sidebar-button">Sign up</a>
+            </div>
         {% endif %}
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
     </div>
 </body>
 </html>

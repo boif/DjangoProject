@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gothic', Arial, sans-serif;
+    background-color: #2b2b2b;
+    color: #ffffff;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 20%; /* Ширина сайдбара на 20% экрана */
+    background-color: #272727;
+    color: #fff;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 0; /* Убираем отступ сверху */
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    word-wrap: break-word; /* Добавляем перенос для длинных слов */
+}
+
+.sidebar ul li a:hover {
+    background-color: #333;
+    border-radius: 5px;
+}
+
+.content {
+    margin-left: 20%;
+    padding: 20px;
+    width: 80%;
+    box-sizing: border-box;
+    word-wrap: break-word; /* Добавляем перенос для длинных слов */
+}
+
+.avatar {
+    width: 250px; /* Желаемая ширина изображения */
+    height: 250px; /* Автоматическое определение высоты */
+    border-radius: 50%; /* Округление углов для создания эффекта круглой аватарки */
+}
+
+.bottom-buttons {
+    position: absolute;
+    bottom: 0px; /* Расположить блок по нижнему краю с отступом в 20 пикселей */
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar-button {
+    display: block;
+    color: #fff;
+    background-color: #272727;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold; /* Сделать текст жирным */
+    border: none; /* Убрать края */
+    font-size: 16px; /* Увеличить размер шрифта */
+    line-height: 44px;
+}
+
+.sidebar-button:hover {
+    background-color: #333;
+}
+
+.post-input {
+        border: 1px solid transparent; /* No border */
+        border-radius: 5px; /* Rounded corners */
+        padding: 10px; /* Padding around the text */
+        background-color: #333; /* Dark background */
+        color: #fff; /* White text */
+        width: 70%; /* 70% of page width */
+        box-sizing: border-box; /* Include padding and border in the width */
+        outline: none; /* Remove focus outline */
+    }
+
+    /* Style for the browse file button */
+.browse-file-btn, .create-post-btn {
+    background-color: #5a8fbf; /* Pastel blue background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.3s; /* Smooth transition */
+    font-size: 14px; /* Font size */
+    display: inline-block; /* добавляем эту строку */
+    height: 33px; /* высота кнопки */
+    line-height: 33px; /* добавляем эту строку */
+    margin-right: 5px;
+}
+
+/* Change background color on hover */
+.browse-file-btn:hover, .create-post-btn:hover {
+    background-color: #5a8fbf; /* Darker shade of pastel blue */
+}
+
+    /* Hide default file input appearance */
+.file-input {
+    display: none;
+}
+
+.create-post-btn {
+    display: none; /* изначально скрываем кнопку */
+}
+
+.file-upload {
+    display: flex; /* Используем flexbox */
+    align-items: center; /* Выравниваем элементы по вертикали */
+}
