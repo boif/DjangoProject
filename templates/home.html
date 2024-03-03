@@ -1,7 +1,45 @@
+<!-- HTML -->
 {% extends "layout.html" %}
 
 {% block content %}
 
-<h2>MAIN</h2>
-    
+{% load static %}
+
+<div class="create-post">
+    <form id="post-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <textarea id="post-text" name="text" class="post-input" placeholder="Enter your post text"></textarea>
+        <div class="file-upload">
+            <label for="file-input" class="browse-file-btn">
+                <img src="{% static 'app/images/files.jpeg' %}" alt="File icon" width="40" height="20" style="vertical-align: middle;">
+            </label>
+            <input type="file" id="file-input" name="content" class="file-input">
+            <button type="submit" id="create-post-btn" class="create-post-btn" style="display: none;">Create Post</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    // JavaScript
+    document.addEventListener('DOMContentLoaded', function() {
+        const postText = document.getElementById('post-text');
+        const fileInput = document.getElementById('file-input');
+        const createPostBtn = document.getElementById('create-post-btn');
+
+        postText.addEventListener('input', toggleCreatePostBtn);
+        fileInput.addEventListener('change', toggleCreatePostBtn);
+
+        function toggleCreatePostBtn() {
+            if (postText.value.trim() !== '' || fileInput.value !== '') {
+                createPostBtn.style.display = 'inline-block'; // Показываем кнопку, если есть текст или выбран файл
+            } else {
+                createPostBtn.style.display = 'none'; // Скрываем кнопку, если нет текста и не выбран файл
+            }
+        }
+    });
+</script>
+
 {% endblock %}
+
+
+{#<img src="{% static 'app/images/files.jpeg' %}" alt="File icon" width="25" height="25" style="vertical-align: middle;">#}
