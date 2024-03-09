@@ -5,6 +5,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('', views.createPost, name='home'),
+    path('post/<int:pk>/', views.PostDetailView.as_view(), name='post')
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

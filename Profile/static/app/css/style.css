@@ -118,9 +118,9 @@ body {
 }
 
 .author {
-        margin-bottom: -15px; /* Уменьшение отступа между именем пользователя и датой */
-        font-size: smaller;
-    }
+    margin-bottom: -13px; /* Уменьшение отступа между именем пользователя и датой */
+    font-size: smaller;
+}
 
 .date {
     font-size: x-small;

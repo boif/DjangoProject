@@ -25,7 +25,7 @@
         <div class="post">
             <div class="post-header">
                 <p class="author">{{ post.author.username }}</p> <!-- Имя пользователя -->
-                <p class="date">{{ post.date|date:"d.m.Y H:i" }}</p> <!-- Дата публикации -->
+                <a href="{% url 'post' pk=post.pk %}" class="date" style="text-decoration: none; color: inherit;">{{ post.date|date:"d.m.Y H:i" }}</a>
             </div>
             <div class="post-content">
                 <p class="text">{{ post.text }}</p> <!-- Текст поста -->
