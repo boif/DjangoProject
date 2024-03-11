@@ -12,6 +12,10 @@
     <div class="sidebar">
         <ul>
             <li><a href="/" class="sidebar-button">Teneta</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'profile' user.username %}" class="sidebar-button">Profile</a></li>
+            {% endif %}
+
         </ul>
         {% if user.is_authenticated %}
             <form action="{% url 'logout' %}" method="post">

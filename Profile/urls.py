@@ -16,6 +16,7 @@ urlpatterns = [
          ),
          name='login'),
     path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
+    path('profile/<str:username>', views.profile, name='profile'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
