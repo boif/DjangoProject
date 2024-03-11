@@ -11,7 +11,7 @@ body {
     top: 0;
     left: 0;
     height: 100%;
-    width: 20%; /* Ширина сайдбара на 20% экрана */
+    width: 220px; /* Ширина сайдбара на 20% экрана */
     background-color: #272727;
     color: #fff;
 }
@@ -37,9 +37,8 @@ body {
 }
 
 .content {
-    margin-left: 20%;
+    margin-left: 220px;
     padding: 20px;
-    width: 80%;
     box-sizing: border-box;
     word-wrap: break-word; /* Добавляем перенос для длинных слов */
 }
@@ -77,10 +76,9 @@ body {
 .post-input {
         border: 1px solid transparent; /* No border */
         border-radius: 5px; /* Rounded corners */
-        padding: 10px; /* Padding around the text */
         background-color: #333; /* Dark background */
         color: #fff; /* White text */
-        width: 70%; /* 70% of page width */
+        width: 550px;
         box-sizing: border-box; /* Include padding and border in the width */
         outline: none; /* Remove focus outline */
     }
@@ -95,8 +93,8 @@ body {
     transition: background-color 0.3s; /* Smooth transition */
     font-size: 14px; /* Font size */
     display: inline-block; /* добавляем эту строку */
-    height: 33px; /* высота кнопки */
-    line-height: 33px; /* добавляем эту строку */
+    height: 25px; /* высота кнопки */
+    line-height: 25px; /* добавляем эту строку */
     margin-right: 5px;
 }
 
@@ -117,13 +115,4 @@ body {
 .file-upload {
     display: flex; /* Используем flexbox */
     align-items: center; /* Выравниваем элементы по вертикали */
-<<<<<<< HEAD
-=======
-}
-
-.avatar {
-    width: 250px; /* Желаемая ширина изображения */
-    height: 250px; /* Автоматическое определение высоты */
-    border-radius: 50%; /* Округление углов для создания эффекта круглой аватарки */
->>>>>>> profile
 }

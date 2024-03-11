@@ -12,6 +12,7 @@
     <div class="sidebar">
         <ul>
             <li><a href="/" class="sidebar-button">Teneta</a></li>
+            <li><a href="/" class="sidebar-button">News</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'profile' user.username %}" class="sidebar-button">Profile</a></li>
             {% endif %}
@@ -32,5 +33,9 @@
     <div class="content">
         {% block content %}{% endblock %}
     </div>
+
+
+<script src="{% static 'app/scripts.js' %}"></script>
+
 </body>
 </html>

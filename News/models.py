@@ -9,4 +9,4 @@ class Post(models.Model):
     objects = models.Manager()
 
     def __str__(self):
-        return self.text[:50]
+        return f"{self.author.username} - {self.date.strftime('%Y-%m-%d %H:%M:%S')}"

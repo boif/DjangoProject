@@ -1,45 +1,44 @@
-<!-- HTML -->
 {% extends "layout.html" %}
 
 {% block content %}
 
 {% load static %}
 
-<div class="create-post">
-    <form id="post-form" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <textarea id="post-text" name="text" class="post-input" placeholder="Enter your post text"></textarea>
-        <div class="file-upload">
-            <label for="file-input" class="browse-file-btn">
-                <img src="{% static 'app/images/files.jpeg' %}" alt="File icon" width="40" height="20" style="vertical-align: middle;">
-            </label>
-            <input type="file" id="file-input" name="content" class="file-input">
-            <button type="submit" id="create-post-btn" class="create-post-btn" style="display: none;">Create Post</button>
+{% if user.is_authenticated %}    
+    <div class="create-post">
+        <form id="post-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <textarea id="post-text" name="text" class="post-input" placeholder="Enter your post text"></textarea>
+            <div class="file-upload">
+                <label for="file-input" class="browse-file-btn">
+                    <img src="{% static 'app/images/files.png' %}" alt="File icon" width="15" height="15" style="vertical-align: middle;">
+                </label>
+                <input type="file" id="file-input" name="content" class="file-input">
+                <button type="submit" id="create-post-btn" class="create-post-btn" style="display: none;">Create Post</button>
+            </div>
+        </form>
+    </div>
+{% endif %}
+    
+<div class="posts">
+    {% for post in posts %}
+        <div class="post">
+            <div class="post-header">
+                <p class="author">{{ post.author.username }}</p> <!-- Имя пользователя -->
+                <a href="{% url 'post' pk=post.pk %}" class="date" style="text-decoration: none; color: inherit;">{{ post.date|date:"d.m.Y H:i" }}</a>
+            </div>
+            <div class="post-content">
+                <p class="text">{{ post.text }}</p> <!-- Текст поста -->
+                {% if post.content %}
+                    {% if '.jpg' in post.content.url or '.jpeg' in post.content.url or '.png' in post.content.url or '.gif' in post.content.url %}
+                        <img src="{{ post.content.url }}" alt="Post Image"> <!-- Отображение изображения -->
+                    {% else %}
+                        <a href="{{ post.content.url }}">Download File</a> <!-- Ссылка для скачивания файла, если это не изображение -->
+                    {% endif %}
+                {% endif %}
+            </div>
         </div>
-    </form>
+    {% endfor %}
 </div>
 
-<script>
-    // JavaScript
-    document.addEventListener('DOMContentLoaded', function() {
-        const postText = document.getElementById('post-text');
-        const fileInput = document.getElementById('file-input');
-        const createPostBtn = document.getElementById('create-post-btn');
-
-        postText.addEventListener('input', toggleCreatePostBtn);
-        fileInput.addEventListener('change', toggleCreatePostBtn);
-
-        function toggleCreatePostBtn() {
-            if (postText.value.trim() !== '' || fileInput.value !== '') {
-                createPostBtn.style.display = 'inline-block'; // Показываем кнопку, если есть текст или выбран файл
-            } else {
-                createPostBtn.style.display = 'none'; // Скрываем кнопку, если нет текста и не выбран файл
-            }
-        }
-    });
-</script>
-
 {% endblock %}
-
-
-{#<img src="{% static 'app/images/files.jpeg' %}" alt="File icon" width="25" height="25" style="vertical-align: middle;">#}
