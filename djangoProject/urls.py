@@ -16,14 +16,28 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+<<<<<<< HEAD
 from Profile import views
+=======
+>>>>>>> profile
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('', include('News.urls')),
     path('', include('Profile.urls')),
+=======
+
+    path('', include('News.urls')),
+    path('accounts/', include('Profile.urls')),
+    path('', include('Profile.urls'))
+    
+    
+
+    
+>>>>>>> profile
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

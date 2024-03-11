@@ -25,4 +25,8 @@ class RegisterForm(UserCreationForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
+<<<<<<< HEAD
         fields = ['profile_pic', 'vk']
+=======
+        fields = ['name','image','surname','bio','age']
+>>>>>>> profile
