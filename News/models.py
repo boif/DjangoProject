@@ -10,3 +10,6 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{self.author.username} - {self.date.strftime('%Y-%m-%d %H:%M:%S')}"
+
+    def get_absolute_url(self):
+        return f'/post/{self.id}'

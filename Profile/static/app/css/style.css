@@ -140,3 +140,48 @@ body {
     display: block; /* Сделать изображение блочным элементом */
     margin: auto; /* Центрирование изображения */
 }
+
+.post {
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.menu-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #2b2b2b; /* Темно-серый цвет */
+    font-weight: bold; /* Пожирнее */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2b2b2b;
+    min-width: 100px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+}
+
+.dropdown-content a {
+    color: #ffffff;
+    padding: 2px 2px;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #333333;
+}
+
+.menu:hover .dropdown-content {
+    display: block;
+}
