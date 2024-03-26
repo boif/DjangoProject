@@ -13,13 +13,6 @@
         <ul>
             <li><a href="/" class="sidebar-button">Teneta</a></li>
             <li><a href="/" class="sidebar-button">News</a></li>
-<<<<<<< HEAD
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'profile' user.username %}" class="sidebar-button">Profile</a></li>
-            {% endif %}
-
-=======
->>>>>>> origin/master
         </ul>
         {% if user.is_authenticated %}
             <form action="{% url 'logout' %}" method="post">

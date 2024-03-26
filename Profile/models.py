@@ -3,14 +3,6 @@ from django.contrib.auth.models import User
 from PIL import Image
 
 class Profile(models.Model):
-<<<<<<< HEAD
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    profile_pic = models.ImageField(upload_to='images', default='images\profile\default.png', blank=True)
-    vk = models.CharField(max_length=50, null=True, blank=True)
-
-    def __str__(self):
-        return str(self.user)
-=======
     user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
     name = models.CharField(max_length=255, blank=True,null=True)
     image = models.ImageField(upload_to='media/',blank=True, null=True)
@@ -33,4 +25,3 @@ class Profile(models.Model):
             
 
 
->>>>>>> profile

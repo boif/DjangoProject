@@ -7,8 +7,6 @@ from django.http import HttpResponse
 from django.views.generic.detail import DetailView
 from Profile.forms import RegisterForm, ProfileForm
 
-<<<<<<< HEAD
-=======
 # class ShowProfilePageView(DetailView):
 #     model = Profile
 #     template_name = 'profile.html'
@@ -34,7 +32,6 @@ def profile(request, username):
         }
     )
 
->>>>>>> profile
 
 def signup(request):
     if request.method == 'POST':
